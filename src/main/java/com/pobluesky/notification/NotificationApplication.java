@@ -11,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
     "com.pobluesky.global",
-    "com.pobluesky.notification"
+    "com.pobluesky.notification",
+//    "com.pobluesky.kafka"
 })
 @EnableFeignClients(basePackages = "com.pobluesky.feign")
 public class NotificationApplication {

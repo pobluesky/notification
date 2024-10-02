@@ -22,6 +22,12 @@ public interface ManagerNotificationRepository extends JpaRepository<ManagerNoti
         Pageable pageable
     );
 
+    @Query("SELECT mn FROM ManagerNotification mn WHERE mn.userId = :userId AND mn.isRead = :isRead ORDER BY mn.createdDate DESC")
+    List<ManagerNotification> findRecentNotificationsByuserIdAndIsReadForMobile(
+        @Param("userId") Long userId,
+        @Param("isRead") Boolean isRead
+    );
+
     @Query("SELECT COUNT(mn) FROM ManagerNotification mn WHERE mn.userId = :userId AND mn.isRead = false")
     long countUnreadNotificationsByManager_UserId(@Param("userId") Long userId);
 }
